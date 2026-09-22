@@ -1,0 +1,32 @@
+SELECT slate_person.banner_pidm
+      ,slate_person.banner_id slate_id_matching_only
+      ,seq_no apradeg_seq_no
+      ,sbgi_code sbgi_code
+      ,sbgi_desc school
+      ,degc_code degree_code
+      ,degc_desc degree_desc
+      ,TO_CHAR(grad_date,'YYYYMMDD') degree_date
+      ,class_year class_year
+      ,coll_code apradeg_coll_code
+      ,coll_desc college_desc
+      ,camp_code apradeg_camp_code
+      ,camp_desc campus_desc
+      ,program_1 program
+      ,majr_code_1 major_code
+      ,majr_code_1_desc major
+      ,majr_code_2 major_code2
+      ,majr_code_2_desc major2
+      ,minr_code_1 minor_code
+      ,minr_code_1_desc minor_desc
+      ,minr_code_2 minor_code2
+      ,minr_code_2_desc minor2_desc
+      ,conc_code_1 conc_code
+      ,conc_code_1_desc concentration_desc
+      ,conc_code_2 conc_code2
+      ,conc_code_2_desc concentration2_desc
+      ,honor_code honor_code
+      ,honor_desc honor_desc
+  FROM slate_degree
+    JOIN slate_person
+      ON slate_degree.banner_pidm = slate_person.banner_pidm
+ WHERE slate_degree.send_ind = 'Y'
